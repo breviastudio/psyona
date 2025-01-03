@@ -15,8 +15,6 @@ app.post('/api/chat', async (req, res) => {
 
 
     res.json(aiResponse);
-
-    console.log(res.json);
     
   } catch (error) {
     console.error('Error:', error);
