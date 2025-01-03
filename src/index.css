@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #333;
+}
+
+@layer utilities {
+  .rotate-y-360 {
+    transform: rotateX(360deg);
+  }
+}
