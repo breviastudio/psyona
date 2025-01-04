@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 import { sendMessage } from '../services/api';
+import TypingAnimation from './TypingAnimation';
 
 export const ChatBox = () => {
   const [message, setMessage] = useState('');
@@ -14,11 +15,10 @@ export const ChatBox = () => {
 
     setIsLoading(true);
     setError('');
-    
+
     try {
       const data = await sendMessage(message);
       setResponse(data);
-      
     } catch (error) {
       console.error('Error:', error);
       setError('Failed to get response. Please try again.');
@@ -35,7 +35,13 @@ export const ChatBox = () => {
           <p className="text-red-400">{error}</p>
         ) : (
           <p className="text-white">
-            {response || 'AI response will appear here...'}
+            {isLoading ? (
+              <TypingAnimation text="..." delay={100} infinite styles={"font-bold"} />
+            ) : response ? (
+              <TypingAnimation text={response} delay={30} />
+            ) : (
+              <span>AI response will appear here...</span>
+            )}
           </p>
         )}
       </div>
@@ -60,3 +66,4 @@ export const ChatBox = () => {
     </div>
   );
 };
+
