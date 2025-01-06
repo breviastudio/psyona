@@ -19,7 +19,7 @@ export const ChatBox = () => {
 
     try {
       const data = await sendMessage(message);
-      setResponse(data.response);
+      setResponse(data);
       // console.log(data.response);
       speak(data.response)
       
