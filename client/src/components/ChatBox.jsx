@@ -21,7 +21,7 @@ export const ChatBox = () => {
       const data = await sendMessage(message);
       setResponse(data);
       // console.log(data.response);
-      speak(data.response)
+      speak(data)
       
     } catch (error) {
       console.error('Error:', error);
