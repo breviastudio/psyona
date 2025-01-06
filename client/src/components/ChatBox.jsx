@@ -42,7 +42,7 @@ export const ChatBox = () => {
             {isLoading ? (
               <TypingAnimation text="..." delay={100} infinite styles={"font-bold"} />
             ) : response ? (
-              <TypingAnimation text={response} delay={70} />
+              <TypingAnimation text={response} delay={150} />
             ) : (
               <span>AI response will appear here...</span>
             )}
